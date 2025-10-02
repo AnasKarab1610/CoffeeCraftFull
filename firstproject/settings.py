@@ -115,11 +115,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
 
+STATIC_URL = '/static/'
+
+# هذا المسار هو المكان يلي Django رح يجمع فيه ملفات static وقت الـ collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# إذا عندك ملفات static خاصة (من عندك)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
