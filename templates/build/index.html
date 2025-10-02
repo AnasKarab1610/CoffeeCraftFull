@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html > 
+<html >
+<head>
+  <title>حضّـر قهوتك | كوفي كرافت</title>
+  <meta name="description" content="خصّص تجربتك مع القهوة كما تحب. مع كوفي كرافت، يمكنك اختيار الحبوب والطريقة لتصنع كوبك المثالي بنفسك.">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar" data-aos="fade-right">
+  <div class="nav-left">
+    <a href="contact">تواصل معنا</a>
+    <a href="about">من نحن</a>
+  </div>
+
+  <div class="nav-center">
+    <a href="../">
+      <img src="{% static 'img/logo.png' %}" class="logo">
+    </a>
+  </div>
+
+  <div class="nav-right"> 
+    <a href="">حضّـر قهوتك</a>
+    <a href="../">الرئيسية</a>
+  </div>
+</nav>
+
+
+<br>
+<div class="build ">
+  <h2 class="section-title" data-aos="fade-up">حضّر كوب قهوتك</h2>
+  <div class="build-section">
+    <h2 data-aos="fade-left">اختر نوع الحبوب</h2>
+      <div class="build-options rtl" data-aos="fade-left">
+        {% for data in beans %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-left">
+    <h2 data-aos="fade-right">اختر درجة التحميص</h2>
+      <div class="build-options rtl" data-aos="fade-right">
+        {% for data in roast %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-right">
+    <h2 data-aos="fade-left">اختر طريقة التحضير</h2>
+      <div class="build-options rtl" data-aos="fade-left">
+        {% for data in Prepare %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-left">
+    <h2 data-aos="fade-right">اختر حرارة المشروب</h2>
+      <div class="build-options rtl" data-aos="fade-right">
+        {% for data in heat %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-right">
+    <h2 data-aos="fade-left">اختر نوع الحليب او الماء</h2>
+      <div class="build-options rtl" data-aos="fade-left">
+        {% for data in Fluids %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-left">
+    <h2 data-aos="fade-right">اختر المُحلي</h2>
+      <div class="build-options rtl" data-aos="fade-right">
+        {% for data in Sweeteners %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-right">
+    <h2 data-aos="fade-left">اختر النكهة</h2>
+      <div class="build-options rtl" data-aos="fade-left">
+        {% for data in Flavors %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-left">
+    <h2 data-aos="fade-right">اختر الإضافة العلوية</h2>
+      <div class="build-options rtl" data-aos="fade-right">
+        {% for data in ontop %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-right">
+    <h2 data-aos="fade-left">اختر حجم الكوب</h2>
+      <div class="build-options rtl" data-aos="fade-left">
+        {% for data in size %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <hr class="section-divider" data-aos="fade-left">
+    <h2 data-aos="fade-right">اختر الرسمة</h2>
+      <div class="build-options rtl" data-aos="fade-right">
+        {% for data in art %}
+        <div class="build-option-btn" onclick="selectOption(this)">
+          <div class="build-flip-inner">
+            <div class="build-flip-front">
+              <b>{{data.name}}</b>
+            </div>
+            <div class="build-flip-back">
+              <img src="{{ data.imgs.url }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+</div>
+<br>
+
+<button class="coffee-save-btn" onclick="saveCoffeeSpecs()">
+  حفظ المواصفات
+</button>
+
+<!-- الإشعار -->
+<div id="coffeeToast" class="coffee-toast">
+  ✔ تم حفظ المواصفات بنجاح! <br>
+  عند إطلاق الموقع الرسمي ستتمكن من الاشتراك ومتابعة طلبك.
+</div>
+
+<!-- Footer -->
+<footer class="big-footer">
+<div class="footer-box">
+  <a href="tel:+201023780358" class="footer-item">
+    <img src="{% static 'img/phone.png' %}" alt="">
+    <span>اتصل بنا</span>
+  </a>
+  <a href="mailto:anas.karab22@gmail.com" class="footer-item">
+    <img src="{% static 'img/atsign.png' %}" alt="">
+    <span>راسلنا</span>
+  </a>
+  <a href="http://instagram.com/" class="footer-item">
+    <img src="{% static 'img/insta.png' %}" alt="">
+    <span>تابعنا</span>
+  </a>
+  <a href="https://www.facebook.com/" class="footer-item">
+    <img src="{% static 'img/facebook.png' %}" alt="">
+    <span>تابعنا</span>
+  </a>
+</div>
+
+<div class="footer-bottom">
+  © 2025 CoffeeCraft – Made by Anas
+</div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

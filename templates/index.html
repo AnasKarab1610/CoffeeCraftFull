@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>كوفي كرافت | عالم القهوة يبدأ من هنا</title>
+  <meta name="description" content="اكتشف تجربة القهوة المتكاملة مع كوفي كرافت. من الحبوب الطازجة إلى طرق التحضير المبتكرة، نوفر لك كل ما تحتاجه للاستمتاع بكوب مثالي.">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+</head>
+
+<body>
+  <!-- Navbar -->
+<nav class="navbar" data-aos="fade-right">
+  <div class="nav-left">
+    <a href="contact">تواصل معنا</a>
+    <a href="about">من نحن</a>
+  </div>
+
+  <div class="nav-center">
+    <a href="../">
+      <img src="{% static 'img/logo.png' %}" class="logo">
+    </a>
+  </div>
+
+  <div class="nav-right"> 
+    <a href="build">حضّـر قهوتك</a>
+    <a href="../">الرئيسية</a>
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+<section class="hero" data-aos="fade-up">
+  <div class="hero-content">
+		<h1>قهوتك على زوقك</h1>
+    <p dir="rtl">صمّم قهوتك المثالية مع <span class="brand">CoffeeCraft</span> <br>تصل إليك كل صباح كما تحبها. عِش التجربة الآن.</p>
+    <a href="build" class="cta-button ">حضّـر قهوتك الآن</a>
+  </div>
+</section>
+
+
+  <!-- Steps -->
+<section class="how-it-works">
+  <h2 class="section-title" data-aos="fade-up" >كيف تعمل منصة CoffeeCraft؟</h2>
+
+  <div class="steps">
+    <div class="step" data-aos="fade-up">
+      <div class="icon">
+        <img src="{% static 'img/step1.jpg' %}" alt="">
+      </div>
+      <h3>اختر نوع البن</h3>
+      <p>انتقِ البن المفضل لديك ودرجة التحميص.</p>
+    </div>
+    
+    <div class="step" data-aos="fade-up" data-aos-delay="150">
+      <div class="icon">
+        <img src="{% static 'img/step2.jpg' %}" alt="">
+      </div>
+      <h3>أضف الإضافات</h3>
+      <p>اختر الحليب، النكهات، السكر… وغيرها.</p>
+    </div>
+    
+    <div class="step" data-aos="fade-up" data-aos-delay="300">
+      <div class="icon">
+        <img src="{% static 'img/step3.jpg' %}" alt="">
+      </div>
+      <h3>اشترك للتوصيل</h3>
+      <p>حدد أيام الأسبوع و الاوقات.</p>
+    </div>
+    
+    <div class="step" data-aos="fade-up" data-aos-delay="450">
+      <div class="icon">
+        <img src="{% static 'img/step4.jpg' %}" alt="">
+      </div>
+      <h3>استمتع بقهوة الصباح</h3>
+      <p>قهوتك سوف تصلك كل صباح كما تحبها.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section>
+  <h2 class="section-title" data-aos="fade-up" >آراء عملاؤنا</h2>
+  <div class="carousel">
+    <div class="card active">
+      <img src="{% static 'img/rate3.jpg' %}" alt="user">
+      <h3>Khaled Alhosani</h3>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+      </div>
+      <p>خدمة ممتازة واحترافية.</p>
+    </div>
+
+    <div class="card next">
+      <img src="{% static 'img/rate2.jpeg' %}" alt="user">
+          <h3>Abdulrahman Alnofal</h3>
+        <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <p>الطعم جيد جدًا ورائحة ونكهة قوية</p>
+    </div>
+
+    <div class="card prev" >
+      <img src="{% static 'img/rate1.jpg' %}" alt="user">
+      <h3>Mariam Mohamed</h3>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <p>تجربة رائعة وأنصح بها الجميع.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- FAQ -->
+<section>
+  <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
+  <div class="faq">
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="faq-question">هل يمكن تغيير نوع القهوة كل أسبوع؟</div>
+      <div class="faq-answer">نعم، يمكنك تعديل طلبك وتغيير نوع القهوة من خلال حسابك قبل موعد الشحن.</div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="faq-question">كيف يتم الدفع؟</div>
+      <div class="faq-answer">يتم الدفع أونلاين عبر بطاقات الائتمان أو الدفع عند الاستلام.</div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="faq-question">هل الخدمة متاحة في كل المدن؟</div>
+      <div class="faq-answer">الخدمة متوفرة حاليًا في معظم المدن الرئيسية ونعمل على التوسع أكثر.</div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="faq-question">هل القهوة توصل ساخنة؟</div>
+      <div class="faq-answer">بالطبع ☕🔥، هدفنا هو إيصال قهوتك إليك طازجة وساخنة حتى باب منزلك، وكأنك استلمتها مباشرة من المقهى الآن.</div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+      <div class="faq-question">هل يمكن إلغاء الاشتراك؟</div>
+      <div class="faq-answer">نعم، يمكنك إلغاء أو إيقاف الاشتراك في أي وقت دون أي رسوم إضافية.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="big-footer">
+<div class="footer-box">
+  <a href="tel:+201023780358" class="footer-item">
+    <img src="{% static 'img/phone.png' %}" alt="">
+    <span>اتصل بنا</span>
+  </a>
+  <a href="mailto:anas.karab22@gmail.com" class="footer-item">
+    <img src="{% static 'img/atsign.png' %}" alt="">
+    <span>راسلنا</span>
+  </a>
+  <a href="http://instagram.com/" class="footer-item">
+    <img src="{% static 'img/insta.png' %}" alt="">
+    <span>تابعنا</span>
+  </a>
+  <a href="https://www.facebook.com/" class="footer-item">
+    <img src="{% static 'img/facebook.png' %}" alt="">
+    <span>تابعنا</span>
+  </a>
+</div>
+
+<div class="footer-bottom">
+  © 2025 CoffeeCraft – Made by Anas
+</div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

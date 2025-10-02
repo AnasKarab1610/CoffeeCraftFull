@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>تواصل معنا | كوفي كرافت</title>
+  <meta name="description" content="لديك استفسار أو اقتراح؟ نحن هنا لخدمتك. تواصل مع فريق كوفي كرافت عبر البريد الإلكتروني أو الهاتف لنكون أقرب إليك.">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+</head>
+
+<body>
+  <!-- Navbar -->
+<nav class="navbar" data-aos="fade-right">
+  <div class="nav-left">
+    <a href="contact">تواصل معنا</a>
+    <a href="about">من نحن</a>
+  </div>
+
+  <div class="nav-center">
+    <a href="../">
+      <img src="{% static 'img/logo.png' %}" class="logo">
+    </a>
+  </div>
+
+  <div class="nav-right"> 
+    <a href="build">حضّـر قهوتك</a>
+    <a href="../">الرئيسية</a>
+  </div>
+</nav>
+
+
+
+  <!-- Contact form -->
+<section class="contact-form-section">
+  <div class="box" data-aos="fade-up">
+    <h2 class="section-title">تواصل معنا</h2>
+    <form id="contactForm" class="contact-form">
+      <div class="name-fields">
+        <input type="text" name="first_name" placeholder="الاسم الأول" autocomplete="given-name" required>
+        <input type="text" name="last_name" placeholder="الاسم الأخير" autocomplete="family-name" required>
+      </div>
+      <input type="email" name="user_email" placeholder="البريد الإلكتروني" autocomplete="email" required>
+      <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+      <div class="form-actions">
+        <button type="submit">إرسال</button>
+      </div>
+    </form>
+    <div id="emailToast" class="coffee-toast">
+      ✔ تم إرسال الرسالة بنجاح!
+    </div>
+  </div>
+</section>
+
+  <!-- Map -->
+<section class="contact-map-section">
+  <div class="box" data-aos="fade-up">
+    <h2 class="section-title">موقعنا</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d225053.42412566146!2d30.955142626523074!3d29.948554587710532!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b9894511763%3A0x7f99b9f1dbf82f77!2sKoffee%20Kulture!5e1!3m2!1sen!2seg!4v1759068034682!5m2!1sen!2seg"
+            width="100%" height="400" >
+    </iframe>
+  </div>
+</section>
+
+  <!-- Footer -->
+<footer class="big-footer">
+  <div class="footer-box">
+    <a href="tel:+201023780358" class="footer-item">
+      <img src="{% static 'img/phone.png' %}" alt="">
+      <span>اتصل بنا</span>
+    </a>
+    <a href="mailto:anas.karab22@gmail.com" class="footer-item">
+      <img src="{% static 'img/atsign.png' %}" alt="">
+      <span>راسلنا</span>
+    </a>
+    <a href="http://instagram.com/" class="footer-item">
+      <img src="{% static 'img/insta.png' %}" alt="">
+      <span>تابعنا</span>
+    </a>
+    <a href="https://www.facebook.com/" class="footer-item">
+      <img src="{% static 'img/facebook.png' %}" alt="">
+      <span>تابعنا</span>
+    </a>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 CoffeeCraft – Made by Anas
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script src="{% static 'script.js' %}"></script>
+</body>
