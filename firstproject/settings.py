@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "coffeecraftfull.onrender.com",
-    "anaskarab.pythonanywhere.com"
+    "anaskarab.pythonanywhere.com",
+    "coffeecraft.me",
+    "www.coffeecraft.me"
 ]
 
 
