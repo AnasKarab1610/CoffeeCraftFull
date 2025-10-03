@@ -122,15 +122,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 STATIC_URL = '/static/'
 
-# هذا المسار هو المكان يلي Django رح يجمع فيه ملفات static وقت الـ collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# إذا عندك فولدر اسمه "static" حاطط فيه CSS/JS تبعك
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# إذا عندك ملفات static خاصة (من عندك)
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# هاد الفولدر Render رح يستخدمه
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # Default primary key field type
