@@ -126,11 +126,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
 
-# إذا عندك فولدر اسمه "static" حاطط فيه CSS/JS تبعك
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",   # إذا عندك static/ داخل المشروع
+]
 
-# هاد الفولدر Render رح يستخدمه
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / "staticfiles"   # هون Django رح يجمع الملفات
+
+# مكتبة whitenoise لعرض الستاتيك بالـ production
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # ضيفها بعد SecurityMiddleware
+    ...
+]
+
+# عشان Whitenoise يقدر يقدم الملفات بكفاءة
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
