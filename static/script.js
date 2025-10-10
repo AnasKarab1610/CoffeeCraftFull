@@ -95,6 +95,30 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ======================================================
+  // Review Cards 
+  // ======================================================
+  const cards = document.querySelectorAll('.carousel .card');
+  let current = 0;
+
+  if (window.innerWidth <= 768) return;
+
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+  }
+
+  function startCarousel() {
+    showCard(current);
+    setInterval(() => {
+      current = (current + 1) % cards.length;
+      showCard(current);
+    }, 3000);
+  }
+
+  if (cards.length > 0) startCarousel();
+
+  // ======================================================
   // 🔽 Navbar Shrink on Scroll
   // ======================================================
   function checkNavbarShrink() {
