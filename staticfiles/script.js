@@ -1,97 +1,155 @@
-AOS.init({
-duration:1000,
-});
+// ===== script.js =====
+// يحتوي على كل ما يتعلق بـ AOS, Navbar, Mobile Menu, FAQ, EmailJS, Coffee Builder
 
+document.addEventListener('DOMContentLoaded', function () {
 
-const cards = document.querySelectorAll(".card");
-let current = 0;
-function updateCards() {
-  cards.forEach((card, i) => {
-    card.classList.remove("active", "prev", "next");
-    if (i === current) {
-      card.classList.add("active");
-    } else if (i === (current + 1) % cards.length) {
-      card.classList.add("next");
-    } else if (i === (current - 1 + cards.length) % cards.length) {
-      card.classList.add("prev");
-    }
-  });
-}
-setInterval(() => {
-  current = (current + 1) % cards.length;
-  updateCards();
-}, 3000);
-updateCards();
+  // ======================================================
+  // 🔧 Utility Functions
+  // ======================================================
 
+  // توست عام
+  function showToast(toastElem, message) {
+    toastElem.innerHTML = message;
+    toastElem.classList.add("show");
 
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.addEventListener('click', () => {
-    if (item.classList.contains('active')) {
-      item.classList.remove('active');
-      item.classList.add('closing');
-
-      setTimeout(() => {
-        item.classList.remove('closing');
-      }, 400);
-    } else {
-      item.classList.add('active');
-    }
-  });
-});
-
-
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 80) {
-    navbar.classList.add('shrink');
-  } else {
-    navbar.classList.remove('shrink');
+    setTimeout(() => {
+      toastElem.classList.remove("show");
+      window.location.href = "";
+    }, 4000);
   }
-});
+
+  // توست خاص بحفظ إعدادات القهوة
+  function saveCoffeeSpecs() {
+    const toast = document.getElementById("coffeeToast");
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4000);
+
+    setTimeout(() => {
+      window.location.href = "";
+    }, 4000);
+  }
+  window.saveCoffeeSpecs = saveCoffeeSpecs;
+
+  // اختيار زر في بناء القهوة
+  function selectOption(btn) {
+    const parent = btn.parentNode; 
+    const buttons = parent.querySelectorAll(".build-option-btn");
+    buttons.forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+  }
+    window.selectOption = selectOption;
 
 
-emailjs.init("mbYmnfOm_TAt-7Oh5");
+  // ======================================================
+  // 🚀 AOS Initialization
+  // ======================================================
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 1000 });
+  }
 
-const form = document.getElementById('contactForm');
-const emailToast = document.getElementById('emailToast');
+  // ======================================================
+  // 🍔 Navbar + Mobile Menu
+  // ======================================================
+  const navbar = document.querySelector('.navbar');
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+  function toggleMenu() {
+    if (!hamburger || !mobileMenu) return;
 
-  emailjs.sendForm('service_alcn5c3', 'template_3xid6l6', this)
-    .then(function() {
-      showToast(emailToast, "✔ تم إرسال الرسالة بنجاح!");
-      form.reset();
-    }, function(error) {
-      showToast(emailToast, "✖ حصل خطأ، حاول مرة أخرى.");
-      console.error('Error:', error);
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+
+    // منع تمرير الصفحة في الخلفية أثناء فتح القائمة
+    document.body.classList.toggle('no-scroll', mobileMenu.classList.contains('active'));
+  }
+
+  // جعل الدالة متاحة عالميًا (لدعم onclick القديم)
+  window.toggleMenu = toggleMenu;
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
     });
+
+    // دعم استخدام الكيبورد
+    hamburger.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  }
+
+  // إغلاق القائمة عند النقر على أي رابط داخلها
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('active')) toggleMenu();
+      });
+    });
+  }
+
+  // ======================================================
+  // 🔽 Navbar Shrink on Scroll
+  // ======================================================
+  function checkNavbarShrink() {
+    if (!navbar) return;
+    if (window.innerWidth > 768 && window.scrollY > 80) {
+      navbar.classList.add('shrink');
+    } else {
+      navbar.classList.remove('shrink');
+    }
+  }
+
+  window.addEventListener('scroll', checkNavbarShrink);
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 768 && navbar) navbar.classList.remove('shrink');
+    checkNavbarShrink();
+  });
+
+  checkNavbarShrink();
+
+  // ======================================================
+  // ❓ FAQ Toggle
+  // ======================================================
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('active')) {
+        item.classList.remove('active');
+        item.classList.add('closing');
+        setTimeout(() => {
+          item.classList.remove('closing');
+        }, 400);
+      } else {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // ======================================================
+  // 📩 EmailJS
+  // ======================================================
+  emailjs.init("mbYmnfOm_TAt-7Oh5");
+
+  const form = document.getElementById('contactForm');
+  const emailToast = document.getElementById('emailToast');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_alcn5c3', 'template_3xid6l6', this)
+      .then(function () {
+        showToast(emailToast, "✔ تم إرسال الرسالة بنجاح!");
+        form.reset();
+      }, function (error) {
+        showToast(emailToast, "✖ حصل خطأ، حاول مرة أخرى.");
+        console.error('Error:', error);
+      });
+  });
+
 });
-
-function selectOption(btn) {
-  const parent = btn.parentNode; 
-  const buttons = parent.querySelectorAll(".build-option-btn");
-  buttons.forEach(b => b.classList.remove("selected"));
-  btn.classList.add("selected");
-}
-
-
-function showToast(toastElem, message) {
-  toastElem.innerHTML = message;
-  toastElem.classList.add("show");
-  setTimeout(() => {
-    toastElem.classList.remove("show");
-  }, 4000);
-}
-
-
-function saveCoffeeSpecs() {
-  const toast = document.getElementById("coffeeToast");
-  toast.classList.add("show");
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 4000);
-  setTimeout(() => {
-    window.location.href = "";
-  }, 4000);
-}

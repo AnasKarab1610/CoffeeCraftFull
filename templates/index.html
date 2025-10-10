@@ -5,11 +5,11 @@
   <title>كوفي كرافت | عالم القهوة يبدأ من هنا</title>
   <meta name="description" content="اكتشف تجربة القهوة المتكاملة مع كوفي كرافت. من الحبوب الطازجة إلى طرق التحضير المبتكرة، نوفر لك كل ما تحتاجه للاستمتاع بكوب مثالي.">
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
 </head>
@@ -18,13 +18,13 @@
   <!-- Navbar -->
 <nav class="navbar" data-aos="fade-right">
   <div class="nav-left">
-    <a href="contact">تواصل معنا</a>
+    <a href="contact">تواصل معنا</a>  
     <a href="about">من نحن</a>
   </div>
 
   <div class="nav-center">
     <a href="../">
-      <img src="{% static 'img/logo.png' %}" class="logo">
+      <img src="{% static 'img/logo.png' %}" class="logo" alt="Logo">
     </a>
   </div>
 
@@ -32,7 +32,23 @@
     <a href="build">حضّـر قهوتك</a>
     <a href="../">الرئيسية</a>
   </div>
+
+<div id="hamburger" class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../">الرئيسية</a>
+    <a href="build">حضّـر قهوتك</a>
+    <a href="about">من نحن</a>
+    <a href="contact">تواصل معنا</a>
+  </div>
 </nav>
+
+
+
 
 
   <!-- Hero -->
@@ -85,50 +101,74 @@
 </section>
 
 
-<!-- TESTIMONIALS -->
 <section>
-  <h2 class="section-title" data-aos="fade-up" >آراء عملاؤنا</h2>
+  <h2 class="section-title" data-aos="fade-up">آراء عملاؤنا</h2>
+
   <div class="carousel">
-    <div class="card active">
+    <div class="card">
       <img src="{% static 'img/rate3.jpg' %}" alt="user">
+        <div class="card-content" >
       <h3>Khaled Alhosani</h3>
       <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         <i class="fa-regular fa-star"></i>
       </div>
       <p>خدمة ممتازة واحترافية.</p>
+      </div>
     </div>
 
-    <div class="card next">
+    <div class="card">
       <img src="{% static 'img/rate2.jpeg' %}" alt="user">
-          <h3>Abdulrahman Alnofal</h3>
-        <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <div class="card-content">
+      <h3>Abdulrahman Alnofal</h3>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
       </div>
-      <p>الطعم جيد جدًا ورائحة ونكهة قوية</p>
+      <p>الطعم ممتاز ورائحة ونكهة قوية.</p>
+    </div>
     </div>
 
-    <div class="card prev" >
+    <div class="card">
       <img src="{% static 'img/rate1.jpg' %}" alt="user">
+        <div class="card-content">
       <h3>Mariam Mohamed</h3>
       <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star-half-stroke"></i>
       </div>
       <p>تجربة رائعة وأنصح بها الجميع.</p>
     </div>
-  </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'img/rate4.jpg' %}" alt="user">
+        <div class="card-content">
+      <h3>Khaled Magdy</h3>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <p>توصيل سريع وطعم ممتاز.</p>
+    </div>
+    </div>
+    <div class="card">
+      <img src="{% static 'img/rate5.jpg' %}" alt="user">
+        <div class="card-content">
+      <h3>Reem Sameer</h3>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <p>قهوة فخمة ونكهة متوازنة جدًا.</p>
+    </div>
+    </div>
 </section>
+
 
   <!-- FAQ -->
 <section>

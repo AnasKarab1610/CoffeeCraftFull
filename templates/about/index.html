@@ -17,19 +17,32 @@
   <!-- Navbar -->
 <nav class="navbar" data-aos="fade-right">
   <div class="nav-left">
-    <a href="contact">تواصل معنا</a>
+    <a href="contact">تواصل معنا</a>  
     <a href="about">من نحن</a>
   </div>
 
   <div class="nav-center">
     <a href="../">
-      <img src="{% static 'img/logo.png' %}" class="logo">
+      <img src="{% static 'img/logo.png' %}" class="logo" alt="Logo">
     </a>
   </div>
 
   <div class="nav-right"> 
     <a href="build">حضّـر قهوتك</a>
     <a href="../">الرئيسية</a>
+  </div>
+
+<div id="hamburger" class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../">الرئيسية</a>
+    <a href="build">حضّـر قهوتك</a>
+    <a href="about">من نحن</a>
+    <a href="contact">تواصل معنا</a>
   </div>
 </nav>
 
